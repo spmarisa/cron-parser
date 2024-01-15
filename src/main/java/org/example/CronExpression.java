@@ -6,8 +6,6 @@ import lombok.Data;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static java.lang.String.format;
-
 @Data
 @Builder
 public class CronExpression {
@@ -20,7 +18,8 @@ public class CronExpression {
   private String command;
 
   public String toString() {
-    return String.format("%-13s%s\n", minutes.getType(), formatSetType(minutes.getValues())) +
+    return "\n" +
+        String.format("%-13s%s\n", minutes.getType(), formatSetType(minutes.getValues())) +
         String.format("%-13s%s\n", hours.getType(), formatSetType(hours.getValues())) +
         String.format("%-13s%s\n", dayOfMonth.getType(), formatSetType(dayOfMonth.getValues())) +
         String.format("%-13s%s\n", month.getType(), formatSetType(month.getValues())) +
